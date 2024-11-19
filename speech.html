@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+        body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+}
+#container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg clip-path='url(%26quot%3b%23SvgjsClipPath1040%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='%2332325d'%3e%3c/rect%3e%3ccircle r='44.45' cx='701.81' cy='50.17' fill='url(%26quot%3b%23SvgjsLinearGradient1041%26quot%3b)'%3e%3c/circle%3e%3ccircle r='30.275' cx='824.56' cy='478.12' fill='%2343468b'%3e%3c/circle%3e%3ccircle r='35.365' cx='486.86' cy='89.86' fill='url(%26quot%3b%23SvgjsLinearGradient1042%26quot%3b)'%3e%3c/circle%3e%3ccircle r='14.03' cx='160.13' cy='546.52' fill='url(%26quot%3b%23SvgjsLinearGradient1043%26quot%3b)'%3e%3c/circle%3e%3ccircle r='20.985' cx='587.49' cy='201.59' fill='url(%26quot%3b%23SvgjsLinearGradient1044%26quot%3b)'%3e%3c/circle%3e%3ccircle r='53.785' cx='252.28' cy='184.69' fill='%2343468b'%3e%3c/circle%3e%3ccircle r='41.315' cx='983.89' cy='93.56' fill='%2343468b'%3e%3c/circle%3e%3ccircle r='26.52' cx='692.6' cy='471.55' fill='%2343468b'%3e%3c/circle%3e%3c/g%3e%3cdefs%3e%3cclipPath id='SvgjsClipPath1040'%3e%3crect width='1440' height='560' x='0' y='0'%3e%3c/rect%3e%3c/clipPath%3e%3clinearGradient x1='612.91' y1='50.17' x2='790.71' y2='50.17' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1041'%3e%3cstop stop-color='%2332325d' offset='0.1'%3e%3c/stop%3e%3cstop stop-color='%23424488' offset='0.9'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='416.13' y1='89.86' x2='557.59' y2='89.86' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1042'%3e%3cstop stop-color='%23ab3c51' offset='0.1'%3e%3c/stop%3e%3cstop stop-color='%234f4484' offset='0.9'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='132.07' y1='546.52' x2='188.19' y2='546.52' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1043'%3e%3cstop stop-color='%2332325d' offset='0.1'%3e%3c/stop%3e%3cstop stop-color='%23424488' offset='0.9'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='545.52' y1='201.59' x2='629.46' y2='201.59' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1044'%3e%3cstop stop-color='%23ab3c51' offset='0.1'%3e%3c/stop%3e%3cstop stop-color='%234f4484' offset='0.9'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+}
+h1{
+    font-size: 20px;
+    color: white;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 3px 4px 10px rgb(25, 11, 11);
+}
+textarea{
+    margin: 30px 0;
+    height: 100px;
+    width: 300px;
+    border: none;
+    outline: none;
+    box-shadow: 5px 6px 10px black;
+
+}
+button{
+    background-color: rgb(31, 23, 75);
+    color: white;
+    border:5px ;
+    padding:10px ;
+    cursor: pointer;
+
+}
+button:hover{
+    color: rgb(28, 185, 213);
+}
+</style>
+    <div id="container">
+        <h1>Text to Speech</h1>
+        <textarea id="texttospeak" rows="10" cols="30" placeholder="Type your text here.."></textarea>
+        <button onclick="speak()">Speak</button>
+    </div>
+    <script>
+        function speak() {
+            var speech = new SpeechSynthesisUtterance();
+            var textToSpeak = document.getElementById('texttospeak').value;
+            speech.text = textToSpeak;
+            speech.rate = 1; // Normal speed
+            speech.volume = 1; // Volume range is 0 to 1
+            speech.pitch = 1; // Normal pitch
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
+</body>
+</html>
